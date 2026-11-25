@@ -1,0 +1,245 @@
+{
+  "generated_at": 1795600174,
+  "vectors": [
+    {
+      "group": "baseline",
+      "id": "valid",
+      "description": "Correctly signed, current timestamp",
+      "header": "t=1795600174,v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "baseline",
+      "id": "valid_parts_reversed",
+      "description": "v0 part before the t part",
+      "header": "v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9,t=1795600174",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "baseline",
+      "id": "valid_unicode_body",
+      "description": "Body with multi-byte UTF-8 (accents, curly quotes, emoji)",
+      "header": "t=1795600174,v0=d6b69ca473d6d88ebd737406292408f9a31045d3b4411e37bcc59a1c35690983",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"summary\":\"Één klant zei: “merci” 👍\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "baseline",
+      "id": "future_timestamp",
+      "description": "Timestamp one hour in the future",
+      "header": "t=1795603774,v0=29196aeceab8d187c2e7f7b541b31a028cdd6d2e9521d9531f50fa92dc1b76f9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "baseline",
+      "id": "inside_window",
+      "description": "Timestamp 29 minutes old",
+      "header": "t=1795598434,v0=4a26c10f9f8405ea6ac2902a540d33c1b111849c1c5d77fa50edf97b0dabe22c",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "missing",
+      "id": "missing_header",
+      "description": "Empty signature header",
+      "header": "",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "missing",
+      "id": "missing_secret",
+      "description": "Empty secret",
+      "header": "t=1795600174,v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": ""
+    },
+    {
+      "group": "missing",
+      "id": "no_timestamp",
+      "description": "Header without a t= part",
+      "header": "v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "missing",
+      "id": "no_signature",
+      "description": "Header without a v0= part",
+      "header": "t=1795600174",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "missing",
+      "id": "empty_timestamp",
+      "description": "t= with no value",
+      "header": "t=,v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "missing",
+      "id": "only_v1_scheme",
+      "description": "Signature under an unknown v1 scheme",
+      "header": "t=1795600174,v1=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "replay",
+      "id": "stale_timestamp",
+      "description": "Timestamp 31 minutes old, correctly signed",
+      "header": "t=1795598314,v0=2c2784f3338cf02103f86963a27529b25ffb89c9cf0ecad1ee8794ad3845dd71",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "replay",
+      "id": "ts_non_numeric",
+      "description": "Non-numeric timestamp, correctly signed over that exact string",
+      "header": "t=abc,v0=39bd8754932d3f28925f6609ce645029af76c5ae270040b02e4bcbb69193ff5a",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "replay",
+      "id": "ts_exponent",
+      "description": "Exponent notation (1e12 seconds is far in the future), correctly signed over that exact string",
+      "header": "t=1e12,v0=e1e5dec8bf1e841521e74e76d604ed9664aa91499fd392fc7c7c59cdcff537c7",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "replay",
+      "id": "ts_fraction",
+      "description": "Fractional seconds, correctly signed over that exact string",
+      "header": "t=1795600174.5,v0=93093f1ba454f1681ce80d795c6b0b7bde70f84a33fe0160520d2cfe31f71c14",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "replay",
+      "id": "ts_plus_sign",
+      "description": "Leading plus sign, correctly signed over that exact string",
+      "header": "t=+1795600174,v0=9ff3729639b7b71b286e1908f3f98d9f91ceea3a8e77e205bc6395fedb533e47",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "replay",
+      "id": "ts_leading_space",
+      "description": "Leading space, correctly signed over that exact string",
+      "header": "t= 1795600174,v0=8f8b8ce913d3b636b969329500666e3baf2783da1bb4c09d0dd48a4656ae140d",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "replay",
+      "id": "ts_trailing_garbage",
+      "description": "Digits followed by letters, correctly signed over that exact string",
+      "header": "t=1795600174abc,v0=78dd13238744fdafedde5c19293ff7a142e867ffed6eb73f6a228574828eff6d",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "signature",
+      "id": "wrong_secret",
+      "description": "Signed with another secret",
+      "header": "t=1795600174,v0=ff6ca7046a12baa5923038c7c06a165468156e0db1b4b50387c1a361b58661cd",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "signature",
+      "id": "tampered_body",
+      "description": "Body changed after signing",
+      "header": "t=1795600174,v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_tampered\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "signature",
+      "id": "uppercase_hex",
+      "description": "Correct digest in uppercase hex",
+      "header": "t=1795600174,v0=3887480DE523FEE87304CF625254C56E15BA4C05F22C8404720B655AEC8DBFC9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "signature",
+      "id": "truncated_hex",
+      "description": "Digest missing its last two characters",
+      "header": "t=1795600174,v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbf",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "signature",
+      "id": "non_ascii_signature",
+      "description": "Non-ASCII characters in the v0 value",
+      "header": "t=1795600174,v0=ünïcödé",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "signature",
+      "id": "two_v0_wrong_first",
+      "description": "Two v0 parts, wrong one first (key rotation)",
+      "header": "t=1795600174,v0=ff6ca7046a12baa5923038c7c06a165468156e0db1b4b50387c1a361b58661cd,v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "signature",
+      "id": "two_v0_right_first",
+      "description": "Two v0 parts, right one first (key rotation)",
+      "header": "t=1795600174,v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9,v0=ff6ca7046a12baa5923038c7c06a165468156e0db1b4b50387c1a361b58661cd",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "format",
+      "id": "space_after_comma",
+      "description": "Space after the comma",
+      "header": "t=1795600174, v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "format",
+      "id": "two_timestamps",
+      "description": "Two t parts; the signature covers the first",
+      "header": "t=1795600174,t=1795598314,v0=3887480de523fee87304cf625254c56e15ba4c05f22c8404720b655aec8dbfc9",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "payload",
+      "id": "invalid_json",
+      "description": "Correctly signed body that is not JSON",
+      "header": "t=1795600174,v0=b98a917c3864ca5d891c60b2f61bb44add42702694fd2002ee61c5dc8b42e3cb",
+      "body": "not json",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "payload",
+      "id": "json_array",
+      "description": "Correctly signed JSON array instead of an object",
+      "header": "t=1795600174,v0=ad0aebd4b5469d40d1c1e58693e5d5ca1017a7109022899314bdcd288d69a155",
+      "body": "[1,2]",
+      "secret": "wsec_conformance_0123456789abcdef"
+    },
+    {
+      "group": "payload",
+      "id": "json_trailing_data",
+      "description": "Correctly signed JSON object followed by more data",
+      "header": "t=1795600174,v0=a256cb445f145e98c9839910250827f2c9008b0534ebd69dc436e50ca873db63",
+      "body": "{\"type\":\"post_call_transcription\",\"data\":{\"conversation_id\":\"conv_conformance\"}}x",
+      "secret": "wsec_conformance_0123456789abcdef"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+[
+  {
+    "name": "typescript",
+    "runner": "node",
+    "repo": "elevenlabs/elevenlabs-js",
+    "ref": "6c6b8e22464ece237f360f761a96fad487e2a303",
+    "file": "src/wrapper/webhooks.ts"
+  },
+  {
+    "name": "typescript (PR #509)",
+    "runner": "node",
+    "repo": "phlppgdfry/elevenlabs-js",
+    "ref": "09bb198476f1c4ba37447c5d1af95c6d685fc8b2",
+    "file": "src/wrapper/webhooks.ts",
+    "proposed": "https://github.com/elevenlabs/elevenlabs-js/pull/509"
+  },
+  {
+    "name": "python",
+    "runner": "python",
+    "repo": "elevenlabs/elevenlabs-python",
+    "ref": "a902350ee5da5a9dcffd03fd586766b0aef9d722",
+    "file": "src/elevenlabs/webhooks_custom.py"
+  },
+  {
+    "name": "python (PR #947)",
+    "runner": "python",
+    "repo": "phlppgdfry/elevenlabs-python",
+    "ref": "11f7a553be029b2df9c71745377aadc0735a529d",
+    "file": "src/elevenlabs/webhooks_custom.py",
+    "proposed": "https://github.com/elevenlabs/elevenlabs-python/pull/947"
+  },
+  {
+    "name": "go",
+    "runner": "go",
+    "repo": "elevenlabs/elevenlabs-go",
+    "ref": "540b67741e1834c6c9a0a3027328e0b12d8ca5fe",
+    "file": "webhooks/verifier.go"
+  },
+  {
+    "name": "dotnet",
+    "runner": "dotnet",
+    "repo": "elevenlabs/elevenlabs-dotnet",
+    "ref": "848cc68aa9b1bee44b570d3366164f8216545520",
+    "file": "src/ElevenLabs/Webhooks/WebhookVerifier.cs"
+  },
+  {
+    "name": "java",
+    "runner": "java",
+    "repo": "elevenlabs/elevenlabs-java",
+    "ref": "dc0b08289280637bd60bb3e5f204b4d6d6652224",
+    "file": "src/main/java/com/elevenlabs/api/webhooks/WebhookVerifier.java"
+  },
+  {
+    "name": "ruby",
+    "runner": "ruby",
+    "repo": "elevenlabs/elevenlabs-ruby",
+    "ref": "c797d172ec967a1b1ee4fb444b71629570a5f180",
+    "file": "lib/elevenlabs/webhooks/verifier.rb"
+  },
+  {
+    "name": "rust",
+    "runner": "rust",
+    "repo": "elevenlabs/elevenlabs-rust",
+    "ref": "2490866eeeeea6c0b1d8f6af2f259d154f420a9c",
+    "file": "src/webhooks/verifier.rs",
+    "note": "main @ 28bb069 does not compile since SDK regeneration #12 (12 errors in hand-written agent_builder, agent_tools and flows). Pinned to 2490866, the last commit that builds; src/webhooks is identical in both."
+  },
+  {
+    "name": "php",
+    "runner": "php",
+    "repo": "elevenlabs/elevenlabs-php",
+    "ref": "c717591c2322b7eda3d3458afe8563948663cc5b",
+    "file": "src/Webhooks/WebhookVerifier.php"
+  }
+]

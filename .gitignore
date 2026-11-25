@@ -1,0 +1,8 @@
+.cache/
+results/*.err
+results/*.tmp
+runners/go/go.sum
+runners/rust/Cargo.lock
+runners/dotnet/bin/
+runners/dotnet/obj/
+__pycache__/
